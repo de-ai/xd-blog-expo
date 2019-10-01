@@ -1,0 +1,30 @@
+{
+  "id": "906860c1",
+  "name": "XD ",
+  "description": "Annotate & export a presentation ready project",
+  "summary": "Design Engine Annotator",
+  "author": "Matthew Holcombe",
+  "version": "0.0.2",
+  "helpUrl": "https://github.com/de-ai/xd-plugin",
+  "host": {
+    "app": "XD",
+    "minVersion": "21.1"
+  },
+  "languages": [
+    "en"
+  ],
+  "icons": [{
+    "width": 24,
+    "height": 24,
+    "path": "images/icon@1x.png"
+  }, {
+    "width": 48,
+    "height": 48,
+    "path": "images/icon@2x.png"
+  }],
+  "uiEntryPoints": [{
+    "type": "panel",
+    "label": "XD Blog Post",
+    "panelId": "panelController"
+  }]
+}

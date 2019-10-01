@@ -1,0 +1,152 @@
+
+button {
+  width: fit-content;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #232323;
+	font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+h4 {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+hr {
+	margin: 0 -10px 10px -10px;
+	background: #ffffff;
+	border-bottom: 1px solid #cccccc;
+}
+
+select {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+}
+
+panel {
+  width: 100%;
+  height: calc(100vh - 95px);
+  padding: 0;
+  border: 1px dashed rgba(255, 0, 255, 0.0);
+}
+
+dialog {
+	width: 620px;
+	padding: 20px;
+  background-color: #ffffff;
+	border: 1px dashed rgba(255, 0, 255, 0.0);
+}
+
+dialog h1 {
+	margin: 20px 0;
+	text-align: left;
+}
+
+
+.content-wrapper {
+  width: 100%;
+}
+
+.logout-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.input-wrapper-error {
+  border: 1px solid #ff0000;
+}
+
+.line-break {
+  flex-wrap: wrap;
+}
+
+
+.nogrow {
+  flex: 0 0 auto;
+}
+
+.noshrink {
+  flex: 0 0 auto;
+}
+
+.row {
+  align-items: center;
+  text-align: center;
+}
+
+label.row input {
+  flex: 1 1 auto;
+}
+
+.row label span {
+  font-size: 100%;
+}
+
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.sticky {
+  /*position: sticky;*/
+  /*top: 0;*/
+}
+
+.error-modal-logo {
+	width: 66px;
+	height: 30px;
+}
+
+
+.modal-buttons-wrapper {
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.modal-button {
+	width: fit-content;
+	margin-right: 20px;
+	color: #232323;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.modal-button:hover {
+	color: #000000;
+	cursor: pointer;
+}
+
+.modal-button-disabled, .modal-button-disabled:hover {
+	color: #999999;
+	cursor: default;
+}
+
+.modal-button:last-child {
+	margin-right: 0;
+}
