@@ -1,8 +1,8 @@
 import React from 'react';
 import './TopSection.css';
 
-const logo = require('../../images/logo@3x.png');
-const navLinks = require('./../../../assets/json/nav-links');
+const logo = require('../../assets/images/logo@3x.png');
+const navLinks = require('../../assets/json/nav-links');
 
 function TopSection(props) {
 	return (<div className="top-section">

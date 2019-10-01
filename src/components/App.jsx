@@ -31,7 +31,6 @@ class App extends React.Component {
 
 
   render() {
-    //const { selection } = this.props;
     const { profile } = this.state;
 
     return (<div>
