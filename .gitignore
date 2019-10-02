@@ -5,8 +5,10 @@
 #-- ide --#
 .idea
 
-#-- dirs --#
+#-- build --#
 dist
+/*.png
+/*.jpg
 
 #-- node --#
 node_modules
