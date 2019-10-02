@@ -21,7 +21,7 @@ class PanelController {
     this.attachment.appendChild(this.rootNode);
 
     if (!this.instance) {
-      this.instance = ReactDOM.render(<App selection={selection} />, this.rootNode);
+      this.instance = ReactDOM.render(<App />, this.rootNode);
     }
 
     this.update(selection, root);

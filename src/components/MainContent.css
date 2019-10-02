@@ -1,0 +1,9 @@
+.main-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.main-content button {
+	flex: 1 0 auto;
+}

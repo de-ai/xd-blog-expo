@@ -23,6 +23,7 @@
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
+    "btoa": "^1.2.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   }
