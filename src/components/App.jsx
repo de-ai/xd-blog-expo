@@ -42,7 +42,7 @@ class App extends React.Component {
   }
 
 	handleAboutClick = (event) => {
-  	shell.openExternal('https://github.com/de-ai/xd-blog-tutorial/blob/master/README.md');
+  	shell.openExternal('https://github.com/de-ai/xd-blog-expo/blob/master/README.md');
 	};
 
 	handleZoomSelection = () => {
