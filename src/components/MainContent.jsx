@@ -56,19 +56,17 @@ class MainContent extends React.Component {
 	handleFetchImage = async() => {
 		application.editDocument({ editLabel : 'Image Fill Shape' }, async(selection, documentRoot) => {
 			const node = selection.items[0];
-			let response = await fetch(UNSPLASH_API);
 
-			let url = null;
+			let response = await fetch(UNSPLASH_API);
 			try {
-				const photo = await response.json();
-				url = (parseInt(response.headers.get('X-Ratelimit-Remaining'), 10) > 0) ? photo.urls.full : 'https://designengine.ai/images/logo-de-192.jpg';
-				node.name = (parseInt(response.headers.get('X-Ratelimit-Remaining'), 10) > 0) ? photo.description : 'Logo - Design Engine';
+				response = await response.json();
+				node.name = response.description;
 
 			} catch (e) {
 				console.log('fetch error:', e);
 			}
 
-			response = await fetch(url);
+			response = await fetch(response.urls.full);
 			try {
 				response.arrayBuffer().then((buffer) => {
 					let binary = '';
