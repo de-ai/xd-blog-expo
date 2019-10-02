@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+
 class PanelController {
   constructor(App) {
     this.App = App;

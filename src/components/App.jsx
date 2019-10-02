@@ -1,13 +1,13 @@
 const React = require('react');
 const styles = require('./App.css');
 
-const application = require('application');
-const { selection } = require('scenegraph');
+const { editDocument } = require('application');
 const { shell } = require('uxp');
-const fs = require('uxp').storage.localFileSystem;
+const viewport = require('viewport');
 
 const MainContent = require('./MainContent');
 const logo = require('../assets/images/logo@3x.png');
+
 
 const TopSection = (props) => {
 	return (<div className="top-section">
@@ -27,43 +27,34 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { selection : null };
+    this.state = {
+	    documentRoot : null,
+    	selection    : null
+    };
 
-    ['documentStateChanged', 'handleAboutClick', 'handleCreateRendition'].forEach((fn) => {
+    ['documentStateChanged', 'handleAboutClick', 'handleZoomSelection'].forEach((fn) => {
     	this[fn] = this[fn].bind(this);
     });
   }
 
   documentStateChanged(selection, documentRoot) {
-	  this.setState({ selection });
+	  this.setState({ documentRoot, selection });
   }
 
 	handleAboutClick = (event) => {
   	shell.openExternal('https://github.com/de-ai/xd-blog-tutorial/blob/master/README.md');
 	};
 
-	handleCreateRendition = () => {
-		application.editDocument({ editLabel : 'Export Rendition' }, async(selection, docRoot) => {
-			const node = selection.items[0];
-			const folder = await fs.getFolder();
-			const file = await folder.createFile(`${node.name}_${node.guid}.svg`);
+	handleZoomSelection = () => {
+		editDocument({ editLabel : 'Zoom to Selection' }, (selection, documentRoot) => {
+			const bounds = {
+				x      : Math.min(...selection.items.map((node) => (node.globalDrawBounds.x))),
+				y      : Math.min(...selection.items.map((node) => (node.globalDrawBounds.y))),
+				width  : Math.max(...selection.items.map((node) => (node.globalDrawBounds.x + node.globalDrawBounds.width))),
+				height : Math.max(...selection.items.map((node) => (node.globalDrawBounds.y + node.globalDrawBounds.height))),
+			};
 
-			const renditionSettings = [{
-				node        : node,
-				outputFile  : file,
-				type        : application.RenditionType.SVG,
-				minify      : true,
-				embedImages : true,
-				background  : false,
-				scale       : 1
-			}];
-
-			application.createRenditions(renditionSettings).then((results)=> {
-			  console.log(`SVG rendition has been saved at ${results[0].outputFile.nativePath}`);
-
-			}).catch((error)=> {
-			  console.log(error);
-			});
+			viewport.zoomToRect(bounds.x, bounds.y, bounds.width, bounds.height);
 		});
 	};
 
@@ -73,7 +64,7 @@ class App extends React.Component {
 		    <TopSection />
 
 		    <div className="main-content-wrapper">
-			    <MainContent onCreateRendition={this.handleCreateRendition} />
+			    <MainContent onZoomSelection={this.handleZoomSelection} />
 		    </div>
 
 		    <BottomSection onAboutClick={this.handleAboutClick} />
