@@ -1,7 +1,7 @@
 {
   "name": "xd-plugin",
-  "version": "0.5.0",
-  "main": "main.js",
+  "version": "0.1.0",
+  "main": "src/main.jsx",
   "scripts": {
     "watch": "nodemon -w src -e js,jsx,json,css -w webpack.config.js -x yarn build",
     "build": "webpack --mode development"

@@ -3,17 +3,33 @@ const styles = require('./App.css');
 
 const { shell } = require('uxp');
 
-const TopSection = require('./sections/TopSection');
-const ContentPage = require('./pages/ContentPage');
-const RegisterPage = require('./pages/RegisterPage');
+const MainContent = require('./MainContent');
+const logo = require('../assets/images/logo@3x.png');
+
+
+const TopSection = (props) => {
+	return (<div className="top-section">
+		<div className="top-section-logo-wrapper">
+			<img src={logo} className="top-section-logo" alt="Logo" />
+		</div>
+	</div>);
+};
+
+const BottomSection = (props) => {
+	return (<div className="bottom-section">
+		<button onClick={props.onAboutClick}>About</button>
+	</div>);
+};
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { profile : null };
+    this.state = {
+    };
 
-    ['documentStateChanged', 'handleOpenURL', 'handleUserProfile'].forEach((fn)=> {
+    ['documentStateChanged', 'handleAboutClick'].forEach((fn) => {
     	this[fn] = this[fn].bind(this);
     });
   }
@@ -21,32 +37,22 @@ class App extends React.Component {
   documentStateChanged(selection, documentRoot) {
   }
 
-  handleOpenURL = (url)=> {
-	  shell.openExternal(url);
+	handleAboutClick = (event) => {
+  	shell.openExternal('https://github.com/de-ai/xd-blog-tutorial/blob/master/README.md');
 	};
-
-	handleUserProfile = (profile)=> {
-		this.setState({ profile });
-	};
-
 
   render() {
-    const { profile } = this.state;
+    return (<panel className={styles.panel}>
+	    <div className="panel-content-wrapper">
+		    <TopSection />
 
-    return (<div>
-	    <panel className={styles.panel}>
-		    <div className="panel-content-wrapper">
-			    <TopSection onURL={this.handleOpenURL} />
-
-			    <div className="content-wrapper">
-				    {(profile)
-					    ? (<RegisterPage onProfile={this.handleUserProfile} />)
-					    : (<ContentPage />)
-				    }
-			    </div>
+		    <div className="main-content-wrapper">
+			    <MainContent />
 		    </div>
-	    </panel>
-    </div>);
+
+		    <BottomSection onAboutClick={this.handleAboutClick} />
+	    </div>
+    </panel>);
   }
 }
 

@@ -8,7 +8,7 @@ class PanelController {
     this.rootNode = document.createElement('div');
     this.attachment = null;
 
-    ['show', 'hide', 'update'].forEach((fn)=>
+    ['show', 'hide', 'update'].forEach((fn) =>
       this[fn] = this[fn].bind(this)
     );
   }

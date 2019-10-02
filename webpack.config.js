@@ -7,9 +7,9 @@ module.exports = {
   },
   devtool: "none", // prevent webpack from using eval() on my module
   externals: {
-    application: 'application',
-    uxp: 'uxp',
-    scenegraph: 'scenegraph'
+    application: "application",
+    uxp: "uxp",
+    scenegraph: "scenegraph"
   },
   resolve: {
     extensions: [".js", ".jsx"]
