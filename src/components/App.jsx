@@ -54,7 +54,7 @@ class App extends React.Component {
 				height : Math.max(...selection.items.map((node) => (node.globalDrawBounds.y + node.globalDrawBounds.height))),
 			};
 
-			viewport.zoomToRect(bounds.x, bounds.y, bounds.width, bounds.height);
+			viewport.zoomToRect(bounds.x, bounds.y, bounds.width - bounds.x, bounds.height - bounds.y);
 		});
 	};
 
