@@ -1,6 +1,6 @@
 {
-  "id": "906860c1",
-  "name": "XD Blog Tutorial",
+  "id": "ai.designengine.xd-blog-expo",
+  "name": "XD Blog Expo",
   "description": "",
   "summary": "",
   "author": "",
@@ -28,7 +28,7 @@
   }],
   "uiEntryPoints": [{
     "type": "panel",
-    "label": "XD Blog Tutorial",
+    "label": "XD Blog Expo",
     "panelId": "panelController"
   }]
 }
