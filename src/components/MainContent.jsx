@@ -2,7 +2,6 @@ const React = require('react');
 const styles = require('./MainContent.css');
 
 const btoa = require('btoa');
-
 const application = require('application');
 const { selection, Artboard, ImageFill, Line, Text } = require('scenegraph');
 const fs = require('uxp').storage.localFileSystem;

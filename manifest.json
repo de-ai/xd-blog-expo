@@ -1,10 +1,10 @@
 {
   "id": "ai.designengine.xd-blog-expo",
   "name": "XD Blog Expo",
-  "description": "",
-  "summary": "",
-  "author": "",
-  "version": "0.0.1",
+  "description": "Supplementary project for Adobe's Tech blog article",
+  "summary": "Demonstrates the basic capabilities of an Adobe XD panel plugin in React",
+  "author": "Matt Holcombe",
+  "version": "0.1.4",
   "helpUrl": "https://github.com/de-ai/xd-plugin",
   "host": {
     "app": "XD",

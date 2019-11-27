@@ -1,5 +1,4 @@
 require('./utils/react-shim');
-
 const React = require('react');
 
 const App = require('./components/App');
